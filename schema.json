@@ -1,0 +1,324 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "alias": {
+        "$comment": "Proposed method to add meta schema information (i.e. vocabulary property/type)",
+        "s": "http://schema.org"
+    },
+    "buyer": {
+        "$ref": "#person",
+        "description": "The participant that bought the thing",
+        "s:additionalType": "https://schema.org/SellAction",
+        "s:sameAs": "http://schema.org/buyer"
+    },
+    "definitions": {
+        "description": {
+            "$id": "#description",
+            "s:additionalType": "http://schema.org/Text",
+            "s:sameAs": "http://schema.org/description",
+            "type": "string"
+        },
+        "email": {
+            "$id": "#email",
+            "s:additionalType": "http://schema.org/Text",
+            "s:sameAs": "http://schema.org/email",
+            "type": "string"
+        },
+        "location": {
+            "$id": "#location",
+            "properties": {
+                "address": {
+                    "properties": {
+                        "addressCountry": {
+                            "s:additionalType": "http://schema.org/Text",
+                            "s:sameAs": "http://schema.org/addressCountry",
+                            "type": "string"
+                        },
+                        "addressLocality": {
+                            "s:additionalType": "http://schema.org/Text",
+                            "s:sameAs": "http://schema.org/addressLocality",
+                            "type": "string"
+                        },
+                        "addressRegion": {
+                            "s:additionalType": "http://schema.org/Text",
+                            "s:sameAs": "http://schema.org/addressRegion",
+                            "type": "string"
+                        },
+                        "postalCode": {
+                            "s:additionalType": "http://schema.org/Text",
+                            "s:sameAs": "http://schema.org/postalCode",
+                            "type": "string"
+                        },
+                        "streetAddress": {
+                            "s:additionalType": "http://schema.org/Text",
+                            "s:sameAs": "http://schema.org/streetAddress",
+                            "type": "string"
+                        }
+                    },
+                    "s:additionalType": "http://schema.org/PostalAddress",
+                    "s:sameAs": "http://schema.org/address",
+                    "type": "object"
+                },
+                "geo": {
+                    "properties": {
+                        "latitude": {
+                            "s:additionalType": "http://schema.org/Number",
+                            "s:sameAs": "http://schema.org/latitude",
+                            "type": "number"
+                        },
+                        "longitude": {
+                            "s:additionalType": "http://schema.org/Number",
+                            "s:sameAs": "http://schema.org/longitude",
+                            "type": "number"
+                        }
+                    },
+                    "s:additionalType": "http://schema.org/GeoCoordinates",
+                    "s:sameAs": "http://schema.org/geo",
+                    "type": "object"
+                }
+            },
+            "s:additionalType": "http://schema.org/Place",
+            "s:sameAs": "http://schema.org/location",
+            "type": "object"
+        },
+        "name": {
+            "$id": "#name",
+            "s:additionalType": "http://schema.org/Text",
+            "s:sameAs": "http://schema.org/name",
+            "type": "string"
+        },
+        "telephone": {
+            "$id": "#telephone",
+            "s:additionalType": "http://schema.org/Text",
+            "s:sameAs": "http://schema.org/telephone",
+            "type": "string"
+        },
+        "url": {
+            "$id": "#url",
+            "s:additionalType": "http://schema.org/URL",
+            "s:sameAs": "http://schema.org/url",
+            "type": "string"
+        }
+    },
+    "description": "Schema uses http://schema.org/TradeAction as a base type then branches to http://schema.org/BuyAction or http://schema.org/SellAction type depending on whether property instance is http://schema.org/buyer or http://schema.org/seller",
+    "priceSpecification": {
+        "properties": {
+            "deliveryChargeSpecification": {
+                "properties": {
+                    "eligibleRegion": {
+                        "$comment": "Do use ISO 3166-1 alpha-3 three-letter country codes http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3",
+                        "examples": [
+                            "mlt",
+                            "gbr"
+                        ],
+                        "items": {
+                            "type": "string"
+                        },
+                        "s:additionalType": "http://schema.org/Text",
+                        "s:sameAs": "http://schema.org/eligibleRegion",
+                        "type": "array"
+                    },
+                    "price": {
+                        "$ref": "#price"
+                    }
+                },
+                "s:additionalType": "http://schema.org/DeliveryChargeSpecification",
+                "type": "object"
+            },
+            "price": {
+                "$id": "#price",
+                "s:additionalType": "http://schema.org/Number",
+                "s:sameAs": "http://schema.org/price",
+                "type": "number"
+            },
+            "priceCurrency": {
+                "examples": [
+                    "gbp",
+                    "eur"
+                ],
+                "s:additionalType": "http://schema.org/Text",
+                "s:sameAs": "http://schema.org/priceCurrency",
+                "type": "string"
+            },
+            "totalPrice": {
+                "s:additionalType": "http://schema.org/Number",
+                "s:sameAs": "http://schema.org/totalPrice",
+                "type": "number"
+            },
+            "totalPriceUnit": {
+                "$comment": "totalPrice / unitPriceSpecification.referenceQuantity",
+                "type": "number"
+            },
+            "unitPriceSpecification": {
+                "properties": {
+                    "referenceQuantity": {
+                        "s:additionalType": "http://schema.org/QuantitativeValue",
+                        "value": "number"
+                    }
+                },
+                "s:additionalType": "http://schema.org/UnitPriceSpecification",
+                "type": "object"
+            },
+            "valueAddedTaxIncluded": {
+                "s:additionalType": "http://schema.org/Boolean",
+                "s:sameAs": "http://schema.org/valueAddedTaxIncluded",
+                "type": "boolean"
+            }
+        },
+        "s:additionalType": "http://schema.org/PriceSpecification",
+        "type": "object"
+    },
+    "product": {
+        "properties": {
+            "brand": {
+                "properties": {
+                    "name": {
+                        "s:additionalType": "http://schema.org/Text",
+                        "type": "string"
+                    },
+                    "url": {
+                        "$ref": "#url"
+                    }
+                },
+                "s:additionalType": "http://schema.org/Brand",
+                "s:sameAs": "http://schema.org/brand",
+                "type": "object"
+            },
+            "gtin": {
+                "s:additionalType": "http://schema.org/Text",
+                "s:sameAs": "http://schema.org/gtin",
+                "type": "string"
+            },
+            "manufacturer": {
+                "$ref": "#organization",
+                "s:sameAs": "http://schema.org/manufacturer"
+            },
+            "model": {
+                "s:additionalType": "http://schema.org/Text",
+                "s:sameAs": "http://schema.org/model",
+                "type": "string"
+            },
+            "mpn": {
+                "s:additionalType": "http://schema.org/Text",
+                "s:sameAs": "http://schema.org/mpn",
+                "type": "string"
+            },
+            "nsn": {
+                "s:additionalType": "http://schema.org/Text",
+                "s:sameAs": "http://schema.org/nsn",
+                "type": "string"
+            },
+            "productID": {
+                "s:additionalType": "http://schema.org/Text",
+                "s:sameAs": "http://schema.org/productID",
+                "type": "string"
+            }
+        },
+        "s:additionalType": "http://schema.org/Product",
+        "type": "object"
+    },
+    "seller": {
+        "description": "The participant that sold the thing",
+        "properties": {
+            "agentType": {
+                "enum": [
+                    "person",
+                    "organization"
+                ],
+                "type": "string"
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "agentType": "person"
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "agent": {
+                                "$id": "#person",
+                                "affiliation": {
+                                    "$ref": "#organization",
+                                    "s:sameAs": "http://schema.org/affiliation"
+                                },
+                                "description": {
+                                    "$ref": "#description"
+                                },
+                                "email": {
+                                    "$ref": "#email"
+                                },
+                                "location": {
+                                    "$ref": "#location"
+                                },
+                                "name": {
+                                    "$ref": "#name"
+                                },
+                                "s:additionalType": "http://schema.org/Person",
+                                "s:sameAs": "http://schema.org/agent",
+                                "telephone": {
+                                    "$ref": "#telephone"
+                                },
+                                "type": "object",
+                                "url": {
+                                    "$ref": "#url"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "agentType": "organization"
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "agent": {
+                                "$id": "#organization",
+                                "description": {
+                                    "$ref": "#description"
+                                },
+                                "email": {
+                                    "$ref": "#email"
+                                },
+                                "ethicsPolicy": {
+                                    "s:additionalType": "http://schema.org/URL",
+                                    "s:sameAs": "http://schema.org/ethicsPolicy",
+                                    "type": "string"
+                                },
+                                "location": {
+                                    "$ref": "#location"
+                                },
+                                "name": {
+                                    "$ref": "#name"
+                                },
+                                "parentOrganization": {
+                                    "$ref": "#organization",
+                                    "s:sameAs": "http://schema.org/parentOrganization"
+                                },
+                                "s:additionalType": "http://schema.org/Organization",
+                                "s:sameAs": "http://schema.org/agent",
+                                "telephone": {
+                                    "$ref": "#telephone"
+                                },
+                                "type": "object",
+                                "url": {
+                                    "$ref": "#url"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "s:additionalType": "https://schema.org/BuyAction",
+        "s:sameAs": "http://schema.org/seller",
+        "type": "object"
+    },
+    "service": {
+        "s:additionalType": "http://schema.org/Service",
+        "type": "object"
+    },
+    "title": "Structured data for buying/selling something"
+}
