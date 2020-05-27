@@ -3,17 +3,11 @@
     "alias": {
         "s": "http://schema.org"
     },
-    "buyer": {
-        "$ref": "#person",
-        "description": "The participant that bought the thing",
-        "s:additionalType": "https://schema.org/SellAction",
-        "s:sameAs": "http://schema.org/buyer"
-    },
     "definitions": {
-        "description": {
-            "$id": "#description",
+        "disambiguatingDescription": {
+            "$id": "#disambiguatingDescription",
             "s:additionalType": "http://schema.org/Text",
-            "s:sameAs": "http://schema.org/description",
+            "s:sameAs": "http://schema.org/disambiguatingDescription",
             "type": "string"
         },
         "email": {
@@ -99,137 +93,137 @@
         }
     },
     "description": "Schema uses http://schema.org/TradeAction as a base type then branches to http://schema.org/BuyAction or http://schema.org/SellAction type depending on whether property instance is http://schema.org/buyer or http://schema.org/seller",
-    "priceSpecification": {
-        "properties": {
-            "deliveryChargeSpecification": {
-                "properties": {
-                    "eligibleRegion": {
-                        "$comment": "Do use ISO 3166-1 alpha-3 three-letter country codes http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3",
-                        "examples": [
-                            "mlt",
-                            "gbr"
-                        ],
-                        "items": {
+    "properties": {
+        "buyer": {
+            "$ref": "#person",
+            "description": "The participant that bought the thing",
+            "s:additionalType": "https://schema.org/SellAction",
+            "s:sameAs": "http://schema.org/buyer"
+        },
+        "priceSpecification": {
+            "properties": {
+                "deliveryChargeSpecification": {
+                    "properties": {
+                        "eligibleRegion": {
+                            "$comment": "Do use ISO 3166-1 alpha-3 three-letter country codes http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3",
+                            "examples": [
+                                "mlt",
+                                "gbr"
+                            ],
+                            "items": {
+                                "type": "string"
+                            },
+                            "s:additionalType": "http://schema.org/Text",
+                            "s:sameAs": "http://schema.org/eligibleRegion",
+                            "type": "array"
+                        },
+                        "price": {
+                            "$ref": "#price"
+                        }
+                    },
+                    "s:additionalType": "http://schema.org/DeliveryChargeSpecification",
+                    "type": "object"
+                },
+                "price": {
+                    "$id": "#price",
+                    "s:additionalType": "http://schema.org/Number",
+                    "s:sameAs": "http://schema.org/price",
+                    "type": "number"
+                },
+                "priceCurrency": {
+                    "examples": [
+                        "gbp",
+                        "eur"
+                    ],
+                    "s:additionalType": "http://schema.org/Text",
+                    "s:sameAs": "http://schema.org/priceCurrency",
+                    "type": "string"
+                },
+                "totalPrice": {
+                    "s:additionalType": "http://schema.org/Number",
+                    "s:sameAs": "http://schema.org/totalPrice",
+                    "type": "number"
+                },
+                "totalPriceUnit": {
+                    "$comment": "totalPrice / unitPriceSpecification.referenceQuantity",
+                    "type": "number"
+                },
+                "unitPriceSpecification": {
+                    "properties": {
+                        "referenceQuantity": {
+                            "s:additionalType": "http://schema.org/QuantitativeValue",
+                            "value": "number"
+                        }
+                    },
+                    "s:additionalType": "http://schema.org/UnitPriceSpecification",
+                    "type": "object"
+                },
+                "valueAddedTaxIncluded": {
+                    "s:additionalType": "http://schema.org/Boolean",
+                    "s:sameAs": "http://schema.org/valueAddedTaxIncluded",
+                    "type": "boolean"
+                }
+            },
+            "s:additionalType": "http://schema.org/PriceSpecification",
+            "type": "object"
+        },
+        "product": {
+            "properties": {
+                "brand": {
+                    "properties": {
+                        "name": {
+                            "s:additionalType": "http://schema.org/Text",
                             "type": "string"
                         },
-                        "s:additionalType": "http://schema.org/Text",
-                        "s:sameAs": "http://schema.org/eligibleRegion",
-                        "type": "array"
+                        "url": {
+                            "$ref": "#url"
+                        }
                     },
-                    "price": {
-                        "$ref": "#price"
-                    }
+                    "s:additionalType": "http://schema.org/Brand",
+                    "s:sameAs": "http://schema.org/brand",
+                    "type": "object"
                 },
-                "s:additionalType": "http://schema.org/DeliveryChargeSpecification",
-                "type": "object"
-            },
-            "price": {
-                "$id": "#price",
-                "s:additionalType": "http://schema.org/Number",
-                "s:sameAs": "http://schema.org/price",
-                "type": "number"
-            },
-            "priceCurrency": {
-                "examples": [
-                    "gbp",
-                    "eur"
-                ],
-                "s:additionalType": "http://schema.org/Text",
-                "s:sameAs": "http://schema.org/priceCurrency",
-                "type": "string"
-            },
-            "totalPrice": {
-                "s:additionalType": "http://schema.org/Number",
-                "s:sameAs": "http://schema.org/totalPrice",
-                "type": "number"
-            },
-            "totalPriceUnit": {
-                "$comment": "totalPrice / unitPriceSpecification.referenceQuantity",
-                "type": "number"
-            },
-            "unitPriceSpecification": {
-                "properties": {
-                    "referenceQuantity": {
-                        "s:additionalType": "http://schema.org/QuantitativeValue",
-                        "value": "number"
-                    }
+                "gtin": {
+                    "s:additionalType": "http://schema.org/Text",
+                    "s:sameAs": "http://schema.org/gtin",
+                    "type": "string"
                 },
-                "s:additionalType": "http://schema.org/UnitPriceSpecification",
-                "type": "object"
+                "manufacturer": {
+                    "$ref": "#organization",
+                    "s:sameAs": "http://schema.org/manufacturer"
+                },
+                "model": {
+                    "s:additionalType": "http://schema.org/Text",
+                    "s:sameAs": "http://schema.org/model",
+                    "type": "string"
+                },
+                "mpn": {
+                    "s:additionalType": "http://schema.org/Text",
+                    "s:sameAs": "http://schema.org/mpn",
+                    "type": "string"
+                },
+                "nsn": {
+                    "s:additionalType": "http://schema.org/Text",
+                    "s:sameAs": "http://schema.org/nsn",
+                    "type": "string"
+                },
+                "productID": {
+                    "s:additionalType": "http://schema.org/Text",
+                    "s:sameAs": "http://schema.org/productID",
+                    "type": "string"
+                }
             },
-            "valueAddedTaxIncluded": {
-                "s:additionalType": "http://schema.org/Boolean",
-                "s:sameAs": "http://schema.org/valueAddedTaxIncluded",
-                "type": "boolean"
-            }
+            "s:additionalType": "http://schema.org/Product",
+            "type": "object"
         },
-        "s:additionalType": "http://schema.org/PriceSpecification",
-        "type": "object"
-    },
-    "product": {
-        "properties": {
-            "brand": {
-                "properties": {
-                    "name": {
-                        "s:additionalType": "http://schema.org/Text",
-                        "type": "string"
-                    },
-                    "url": {
-                        "$ref": "#url"
-                    }
-                },
-                "s:additionalType": "http://schema.org/Brand",
-                "s:sameAs": "http://schema.org/brand",
-                "type": "object"
-            },
-            "gtin": {
-                "s:additionalType": "http://schema.org/Text",
-                "s:sameAs": "http://schema.org/gtin",
-                "type": "string"
-            },
-            "manufacturer": {
-                "$ref": "#organization",
-                "s:sameAs": "http://schema.org/manufacturer"
-            },
-            "model": {
-                "s:additionalType": "http://schema.org/Text",
-                "s:sameAs": "http://schema.org/model",
-                "type": "string"
-            },
-            "mpn": {
-                "s:additionalType": "http://schema.org/Text",
-                "s:sameAs": "http://schema.org/mpn",
-                "type": "string"
-            },
-            "nsn": {
-                "s:additionalType": "http://schema.org/Text",
-                "s:sameAs": "http://schema.org/nsn",
-                "type": "string"
-            },
-            "productID": {
-                "s:additionalType": "http://schema.org/Text",
-                "s:sameAs": "http://schema.org/productID",
-                "type": "string"
-            }
-        },
-        "s:additionalType": "http://schema.org/Product",
-        "type": "object"
-    },
-    "seller": {
-        "description": "The participant that sold the thing",
-        "properties": {
-            "agentType": {
-                "enum": [
-                    "person",
-                    "organization"
-                ],
-                "type": "string"
-            },
-            "allOf": [
+        "seller": {
+            "anyOf": [
                 {
                     "if": {
                         "properties": {
-                            "agentType": "person"
+                            "agentType": {
+                                "const": "person"
+                            }
                         }
                     },
                     "then": {
@@ -240,8 +234,8 @@
                                     "$ref": "#organization",
                                     "s:sameAs": "http://schema.org/affiliation"
                                 },
-                                "description": {
-                                    "$ref": "#description"
+                                "disambiguatingDescription": {
+                                    "$ref": "#disambiguatingDescription"
                                 },
                                 "email": {
                                     "$ref": "#email"
@@ -268,15 +262,17 @@
                 {
                     "if": {
                         "properties": {
-                            "agentType": "organization"
+                            "agentType": {
+                                "const": "organization"
+                            }
                         }
                     },
                     "then": {
                         "properties": {
                             "agent": {
                                 "$id": "#organization",
-                                "description": {
-                                    "$ref": "#description"
+                                "disambiguatingDescription": {
+                                    "$ref": "#disambiguatingDescription"
                                 },
                                 "email": {
                                     "$ref": "#email"
@@ -309,15 +305,26 @@
                         }
                     }
                 }
-            ]
+            ],
+            "description": "The participant that sold the thing",
+            "properties": {
+                "agentType": {
+                    "enum": [
+                        "person",
+                        "organization"
+                    ],
+                    "type": "string"
+                }
+            },
+            "s:additionalType": "https://schema.org/BuyAction",
+            "s:sameAs": "http://schema.org/seller",
+            "type": "object"
         },
-        "s:additionalType": "https://schema.org/BuyAction",
-        "s:sameAs": "http://schema.org/seller",
-        "type": "object"
+        "service": {
+            "s:additionalType": "http://schema.org/Service",
+            "type": "object"
+        }
     },
-    "service": {
-        "s:additionalType": "http://schema.org/Service",
-        "type": "object"
-    },
-    "title": "Structured data for buying/selling something"
+    "title": "Structured data for buying/selling something",
+    "type": "object"
 }
