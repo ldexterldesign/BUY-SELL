@@ -209,6 +209,9 @@
                     "s:sameAs": "http://schema.org/mpn",
                     "type": "string"
                 },
+                "name": {
+                    "$ref": "#name"
+                },
                 "nsn": {
                     "s:additionalType": "http://schema.org/Text",
                     "s:sameAs": "http://schema.org/nsn",
@@ -217,6 +220,11 @@
                 "productID": {
                     "s:additionalType": "http://schema.org/Text",
                     "s:sameAs": "http://schema.org/productID",
+                    "type": "string"
+                },
+                "size": {
+                    "s:additionalType": "https://schema.org/Text",
+                    "s:sameAs": "https://schema.org/size",
                     "type": "string"
                 }
             },
