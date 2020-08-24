@@ -212,11 +212,6 @@
                 "name": {
                     "$ref": "#name"
                 },
-                "nsn": {
-                    "s:additionalType": "http://schema.org/Text",
-                    "s:sameAs": "http://schema.org/nsn",
-                    "type": "string"
-                },
                 "productID": {
                     "s:additionalType": "http://schema.org/Text",
                     "s:sameAs": "http://schema.org/productID",
