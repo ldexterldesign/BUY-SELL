@@ -100,6 +100,12 @@
             "s:additionalType": "https://schema.org/SellAction",
             "s:sameAs": "http://schema.org/buyer"
         },
+        "dateCreated": {
+            "format": "date",
+            "s:additionalType": "https://schema.org/Date",
+            "s:sameAs": "https://schema.org/dateCreated",
+            "type": "string"
+        },
         "priceSpecification": {
             "properties": {
                 "deliveryChargeSpecification": {
