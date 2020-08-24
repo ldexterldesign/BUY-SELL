@@ -5,6 +5,7 @@
     },
     "definitions": {
         "disambiguatingDescription": {
+            "$comment": "Use schema.org's disambiguatingDescription keyword to avoid conflict with json-schema.org's description keyword",
             "$id": "#disambiguatingDescription",
             "s:additionalType": "http://schema.org/Text",
             "s:sameAs": "http://schema.org/disambiguatingDescription",
