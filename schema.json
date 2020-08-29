@@ -1,20 +1,20 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "alias": {
-        "s": "http://schema.org"
+        "s": "http://schema.org/"
     },
     "definitions": {
         "disambiguatingDescription": {
             "$comment": "Use schema.org's disambiguatingDescription keyword to avoid conflict with json-schema.org's description keyword",
             "$id": "#disambiguatingDescription",
-            "s:additionalType": "http://schema.org/Text",
-            "s:sameAs": "http://schema.org/disambiguatingDescription",
+            "s:additionalType": "s:Text",
+            "s:sameAs": "s:disambiguatingDescription",
             "type": "string"
         },
         "email": {
             "$id": "#email",
-            "s:additionalType": "http://schema.org/Text",
-            "s:sameAs": "http://schema.org/email",
+            "s:additionalType": "s:Text",
+            "s:sameAs": "s:email",
             "type": "string"
         },
         "location": {
@@ -23,73 +23,73 @@
                 "address": {
                     "properties": {
                         "addressCountry": {
-                            "s:additionalType": "http://schema.org/Text",
-                            "s:sameAs": "http://schema.org/addressCountry",
+                            "s:additionalType": "s:Text",
+                            "s:sameAs": "s:addressCountry",
                             "type": "string"
                         },
                         "addressLocality": {
-                            "s:additionalType": "http://schema.org/Text",
-                            "s:sameAs": "http://schema.org/addressLocality",
+                            "s:additionalType": "s:Text",
+                            "s:sameAs": "s:addressLocality",
                             "type": "string"
                         },
                         "addressRegion": {
-                            "s:additionalType": "http://schema.org/Text",
-                            "s:sameAs": "http://schema.org/addressRegion",
+                            "s:additionalType": "s:Text",
+                            "s:sameAs": "s:addressRegion",
                             "type": "string"
                         },
                         "postalCode": {
-                            "s:additionalType": "http://schema.org/Text",
-                            "s:sameAs": "http://schema.org/postalCode",
+                            "s:additionalType": "s:Text",
+                            "s:sameAs": "s:postalCode",
                             "type": "string"
                         },
                         "streetAddress": {
-                            "s:additionalType": "http://schema.org/Text",
-                            "s:sameAs": "http://schema.org/streetAddress",
+                            "s:additionalType": "s:Text",
+                            "s:sameAs": "s:streetAddress",
                             "type": "string"
                         }
                     },
-                    "s:additionalType": "http://schema.org/PostalAddress",
-                    "s:sameAs": "http://schema.org/address",
+                    "s:additionalType": "s:PostalAddress",
+                    "s:sameAs": "s:address",
                     "type": "object"
                 },
                 "geo": {
                     "properties": {
                         "latitude": {
-                            "s:additionalType": "http://schema.org/Number",
-                            "s:sameAs": "http://schema.org/latitude",
+                            "s:additionalType": "s:Number",
+                            "s:sameAs": "s:latitude",
                             "type": "number"
                         },
                         "longitude": {
-                            "s:additionalType": "http://schema.org/Number",
-                            "s:sameAs": "http://schema.org/longitude",
+                            "s:additionalType": "s:Number",
+                            "s:sameAs": "s:longitude",
                             "type": "number"
                         }
                     },
-                    "s:additionalType": "http://schema.org/GeoCoordinates",
-                    "s:sameAs": "http://schema.org/geo",
+                    "s:additionalType": "s:GeoCoordinates",
+                    "s:sameAs": "s:geo",
                     "type": "object"
                 }
             },
-            "s:additionalType": "http://schema.org/Place",
-            "s:sameAs": "http://schema.org/location",
+            "s:additionalType": "s:Place",
+            "s:sameAs": "s:location",
             "type": "object"
         },
         "name": {
             "$id": "#name",
-            "s:additionalType": "http://schema.org/Text",
-            "s:sameAs": "http://schema.org/name",
+            "s:additionalType": "s:Text",
+            "s:sameAs": "s:name",
             "type": "string"
         },
         "telephone": {
             "$id": "#telephone",
-            "s:additionalType": "http://schema.org/Text",
-            "s:sameAs": "http://schema.org/telephone",
+            "s:additionalType": "s:Text",
+            "s:sameAs": "s:telephone",
             "type": "string"
         },
         "url": {
             "$id": "#url",
-            "s:additionalType": "http://schema.org/URL",
-            "s:sameAs": "http://schema.org/url",
+            "s:additionalType": "s:URL",
+            "s:sameAs": "s:url",
             "type": "string"
         }
     },
@@ -99,7 +99,7 @@
             "$ref": "#person",
             "description": "The participant that bought the thing",
             "s:additionalType": "https://schema.org/SellAction",
-            "s:sameAs": "http://schema.org/buyer"
+            "s:sameAs": "s:buyer"
         },
         "dateCreated": {
             "format": "date",
@@ -120,21 +120,21 @@
                             "items": {
                                 "type": "string"
                             },
-                            "s:additionalType": "http://schema.org/Text",
-                            "s:sameAs": "http://schema.org/eligibleRegion",
+                            "s:additionalType": "s:Text",
+                            "s:sameAs": "s:eligibleRegion",
                             "type": "array"
                         },
                         "price": {
                             "$ref": "#price"
                         }
                     },
-                    "s:additionalType": "http://schema.org/DeliveryChargeSpecification",
+                    "s:additionalType": "s:DeliveryChargeSpecification",
                     "type": "object"
                 },
                 "price": {
                     "$id": "#price",
-                    "s:additionalType": "http://schema.org/Number",
-                    "s:sameAs": "http://schema.org/price",
+                    "s:additionalType": "s:Number",
+                    "s:sameAs": "s:price",
                     "type": "number"
                 },
                 "priceCurrency": {
@@ -142,13 +142,13 @@
                         "gbp",
                         "eur"
                     ],
-                    "s:additionalType": "http://schema.org/Text",
-                    "s:sameAs": "http://schema.org/priceCurrency",
+                    "s:additionalType": "s:Text",
+                    "s:sameAs": "s:priceCurrency",
                     "type": "string"
                 },
                 "totalPrice": {
-                    "s:additionalType": "http://schema.org/Number",
-                    "s:sameAs": "http://schema.org/totalPrice",
+                    "s:additionalType": "s:Number",
+                    "s:sameAs": "s:totalPrice",
                     "type": "number"
                 },
                 "totalPriceUnit": {
@@ -158,20 +158,20 @@
                 "unitPriceSpecification": {
                     "properties": {
                         "referenceQuantity": {
-                            "s:additionalType": "http://schema.org/QuantitativeValue",
+                            "s:additionalType": "s:QuantitativeValue",
                             "value": "number"
                         }
                     },
-                    "s:additionalType": "http://schema.org/UnitPriceSpecification",
+                    "s:additionalType": "s:UnitPriceSpecification",
                     "type": "object"
                 },
                 "valueAddedTaxIncluded": {
-                    "s:additionalType": "http://schema.org/Boolean",
-                    "s:sameAs": "http://schema.org/valueAddedTaxIncluded",
+                    "s:additionalType": "s:Boolean",
+                    "s:sameAs": "s:valueAddedTaxIncluded",
                     "type": "boolean"
                 }
             },
-            "s:additionalType": "http://schema.org/PriceSpecification",
+            "s:additionalType": "s:PriceSpecification",
             "type": "object"
         },
         "product": {
@@ -179,27 +179,27 @@
                 "brand": {
                     "properties": {
                         "name": {
-                            "s:additionalType": "http://schema.org/Text",
+                            "s:additionalType": "s:Text",
                             "type": "string"
                         },
                         "url": {
                             "$ref": "#url"
                         }
                     },
-                    "s:additionalType": "http://schema.org/Brand",
-                    "s:sameAs": "http://schema.org/brand",
+                    "s:additionalType": "s:Brand",
+                    "s:sameAs": "s:brand",
                     "type": "object"
                 },
                 "identifier": {
                     "properties": {
                         "gtin": {
-                            "s:additionalType": "http://schema.org/Text",
-                            "s:sameAs": "http://schema.org/gtin",
+                            "s:additionalType": "s:Text",
+                            "s:sameAs": "s:gtin",
                             "type": "string"
                         },
                         "productID": {
-                            "s:additionalType": "http://schema.org/Text",
-                            "s:sameAs": "http://schema.org/productID",
+                            "s:additionalType": "s:Text",
+                            "s:sameAs": "s:productID",
                             "type": "string"
                         }
                     },
@@ -209,16 +209,16 @@
                 },
                 "manufacturer": {
                     "$ref": "#organization",
-                    "s:sameAs": "http://schema.org/manufacturer"
+                    "s:sameAs": "s:manufacturer"
                 },
                 "model": {
-                    "s:additionalType": "http://schema.org/Text",
-                    "s:sameAs": "http://schema.org/model",
+                    "s:additionalType": "s:Text",
+                    "s:sameAs": "s:model",
                     "type": "string"
                 },
                 "mpn": {
-                    "s:additionalType": "http://schema.org/Text",
-                    "s:sameAs": "http://schema.org/mpn",
+                    "s:additionalType": "s:Text",
+                    "s:sameAs": "s:mpn",
                     "type": "string"
                 },
                 "name": {
@@ -230,7 +230,7 @@
                     "type": "string"
                 }
             },
-            "s:additionalType": "http://schema.org/Product",
+            "s:additionalType": "s:Product",
             "type": "object"
         },
         "seller": {
@@ -249,7 +249,7 @@
                                 "$id": "#person",
                                 "affiliation": {
                                     "$ref": "#organization",
-                                    "s:sameAs": "http://schema.org/affiliation"
+                                    "s:sameAs": "s:affiliation"
                                 },
                                 "disambiguatingDescription": {
                                     "$ref": "#disambiguatingDescription"
@@ -263,8 +263,8 @@
                                 "name": {
                                     "$ref": "#name"
                                 },
-                                "s:additionalType": "http://schema.org/Person",
-                                "s:sameAs": "http://schema.org/agent",
+                                "s:additionalType": "s:Person",
+                                "s:sameAs": "s:agent",
                                 "telephone": {
                                     "$ref": "#telephone"
                                 },
@@ -295,8 +295,8 @@
                                     "$ref": "#email"
                                 },
                                 "ethicsPolicy": {
-                                    "s:additionalType": "http://schema.org/URL",
-                                    "s:sameAs": "http://schema.org/ethicsPolicy",
+                                    "s:additionalType": "s:URL",
+                                    "s:sameAs": "s:ethicsPolicy",
                                     "type": "string"
                                 },
                                 "location": {
@@ -307,10 +307,10 @@
                                 },
                                 "parentOrganization": {
                                     "$ref": "#organization",
-                                    "s:sameAs": "http://schema.org/parentOrganization"
+                                    "s:sameAs": "s:parentOrganization"
                                 },
-                                "s:additionalType": "http://schema.org/Organization",
-                                "s:sameAs": "http://schema.org/agent",
+                                "s:additionalType": "s:Organization",
+                                "s:sameAs": "s:agent",
                                 "telephone": {
                                     "$ref": "#telephone"
                                 },
@@ -334,11 +334,11 @@
                 }
             },
             "s:additionalType": "https://schema.org/BuyAction",
-            "s:sameAs": "http://schema.org/seller",
+            "s:sameAs": "s:seller",
             "type": "object"
         },
         "service": {
-            "s:additionalType": "http://schema.org/Service",
+            "s:additionalType": "s:Service",
             "type": "object"
         }
     },
