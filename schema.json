@@ -1,11 +1,11 @@
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "alias": {
-        "s": "http://schema.org/"
+        "s": "https://schema.org/"
     },
     "definitions": {
         "disambiguatingDescription": {
-            "$comment": "Use schema.org's disambiguatingDescription keyword to avoid conflict with json-schema.org's description keyword",
+            "$comment": "Shall use schema.org's disambiguatingDescription keyword to avoid conflict with json-schema.org's description keyword",
             "$id": "#disambiguatingDescription",
             "s:additionalType": "s:Text",
             "s:sameAs": "s:disambiguatingDescription",
@@ -93,7 +93,7 @@
             "type": "string"
         }
     },
-    "description": "Schema uses http://schema.org/TradeAction as a base type then branches to http://schema.org/BuyAction or http://schema.org/SellAction type depending on whether property instance is http://schema.org/buyer or http://schema.org/seller",
+    "description": "The schema uses https://schema.org/TradeAction as a base type then branches to https://schema.org/BuyAction or https://schema.org/SellAction type depending on whether property instance is https://schema.org/buyer or https://schema.org/seller",
     "properties": {
         "buyer": {
             "$ref": "#person",
@@ -112,10 +112,9 @@
                 "deliveryChargeSpecification": {
                     "properties": {
                         "eligibleRegion": {
-                            "description": "Do use ISO 3166-1 alpha-3 three-letter country codes http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3",
+                            "description": "Must use https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 (country codes)",
                             "examples": [
-                                "mlt",
-                                "gbr"
+                                "gb"
                             ],
                             "items": {
                                 "type": "string"
@@ -138,9 +137,10 @@
                     "type": "number"
                 },
                 "priceCurrency": {
+                    "description": "Must use https://en.wikipedia.org/wiki/ISO_4217 (currency code)",
+
                     "examples": [
                         "gbp",
-                        "eur"
                     ],
                     "s:additionalType": "s:Text",
                     "s:sameAs": "s:priceCurrency",
