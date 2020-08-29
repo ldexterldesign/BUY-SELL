@@ -138,9 +138,8 @@
                 },
                 "priceCurrency": {
                     "description": "Must use https://en.wikipedia.org/wiki/ISO_4217 (currency code)",
-
                     "examples": [
-                        "gbp",
+                        "gbp"
                     ],
                     "s:additionalType": "s:Text",
                     "s:sameAs": "s:priceCurrency",
