@@ -112,7 +112,7 @@
                 "deliveryChargeSpecification": {
                     "properties": {
                         "eligibleRegion": {
-                            "$comment": "Do use ISO 3166-1 alpha-3 three-letter country codes http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3",
+                            "description": "Do use ISO 3166-1 alpha-3 three-letter country codes http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3",
                             "examples": [
                                 "mlt",
                                 "gbr"
@@ -152,7 +152,7 @@
                     "type": "number"
                 },
                 "totalPriceUnit": {
-                    "$comment": "totalPrice / unitPriceSpecification.referenceQuantity",
+                    "description": "totalPrice / unitPriceSpecification.referenceQuantity",
                     "type": "number"
                 },
                 "unitPriceSpecification": {
