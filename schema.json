@@ -245,31 +245,33 @@
                         "properties": {
                             "agent": {
                                 "$id": "#person",
-                                "affiliation": {
-                                    "$ref": "#organization",
-                                    "s:sameAs": "s:affiliation"
-                                },
-                                "description": {
-                                    "$ref": "#description"
-                                },
-                                "email": {
-                                    "$ref": "#email"
-                                },
-                                "location": {
-                                    "$ref": "#location"
-                                },
-                                "name": {
-                                    "$ref": "#name"
+                                "properties": {
+                                    "affiliation": {
+                                        "$ref": "#organization",
+                                        "s:sameAs": "s:affiliation"
+                                    },
+                                    "description": {
+                                        "$ref": "#description"
+                                    },
+                                    "email": {
+                                        "$ref": "#email"
+                                    },
+                                    "location": {
+                                        "$ref": "#location"
+                                    },
+                                    "name": {
+                                        "$ref": "#name"
+                                    },
+                                    "telephone": {
+                                        "$ref": "#telephone"
+                                    },
+                                    "url": {
+                                        "$ref": "#url"
+                                    }
                                 },
                                 "s:additionalType": "s:Person",
                                 "s:sameAs": "s:agent",
-                                "telephone": {
-                                    "$ref": "#telephone"
-                                },
-                                "type": "object",
-                                "url": {
-                                    "$ref": "#url"
-                                }
+                                "type": "object"
                             }
                         }
                     }
@@ -286,36 +288,38 @@
                         "properties": {
                             "agent": {
                                 "$id": "#organization",
-                                "description": {
-                                    "$ref": "#description"
-                                },
-                                "email": {
-                                    "$ref": "#email"
-                                },
-                                "ethicsPolicy": {
-                                    "s:additionalType": "s:URL",
-                                    "s:sameAs": "s:ethicsPolicy",
-                                    "type": "string"
-                                },
-                                "location": {
-                                    "$ref": "#location"
-                                },
-                                "name": {
-                                    "$ref": "#name"
-                                },
-                                "parentOrganization": {
-                                    "$ref": "#organization",
-                                    "s:sameAs": "s:parentOrganization"
+                                "properties": {
+                                    "description": {
+                                        "$ref": "#description"
+                                    },
+                                    "email": {
+                                        "$ref": "#email"
+                                    },
+                                    "ethicsPolicy": {
+                                        "s:additionalType": "s:URL",
+                                        "s:sameAs": "s:ethicsPolicy",
+                                        "type": "string"
+                                    },
+                                    "location": {
+                                        "$ref": "#location"
+                                    },
+                                    "name": {
+                                        "$ref": "#name"
+                                    },
+                                    "parentOrganization": {
+                                        "$ref": "#organization",
+                                        "s:sameAs": "s:parentOrganization"
+                                    },
+                                    "telephone": {
+                                        "$ref": "#telephone"
+                                    },
+                                    "url": {
+                                        "$ref": "#url"
+                                    }
                                 },
                                 "s:additionalType": "s:Organization",
                                 "s:sameAs": "s:agent",
-                                "telephone": {
-                                    "$ref": "#telephone"
-                                },
-                                "type": "object",
-                                "url": {
-                                    "$ref": "#url"
-                                }
+                                "type": "object"
                             }
                         }
                     }
