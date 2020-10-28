@@ -1,0 +1,33 @@
+[
+    {
+        "priceSpecification": {
+            "price": 2.15,
+            "priceCurrency": "eur",
+            "totalPrice": 2.15,
+            "totalPriceUnit": 2.15,
+            "unitPriceSpecification": {
+                "referenceQuantity": 1
+            },
+            "valueAddedTaxIncluded": true
+        },
+        "product": {
+            "brand": {
+                "name": "beeswift",
+                "url": "http://beeswift.co.uk/web/uk/WebItem.html?Item=HHBHW"
+            },
+            "gtin": "5 030566 031151",
+            "manufacturer": {
+                "name": "beeswift",
+                "url": "http://beeswift.co.uk"
+            },
+            "model": "click 2000, household heavy weight black, large"
+        },
+        "seller": {
+            "agent": {
+                "name": "clifftop hardware",
+                "url": "http://clifftopdingli.weebly.com"
+            },
+            "agentType": "organization"
+        }
+    }
+]
