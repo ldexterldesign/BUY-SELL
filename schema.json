@@ -93,257 +93,260 @@
         }
     },
     "description": "The schema uses https://schema.org/TradeAction as a base type then branches to https://schema.org/BuyAction or https://schema.org/SellAction type depending on whether property instance is https://schema.org/buyer or https://schema.org/seller",
-    "properties": {
-        "buyer": {
-            "$ref": "#person",
-            "description": "The participant that bought the thing",
-            "s:additionalType": "https://schema.org/SellAction",
-            "s:sameAs": "s:buyer"
-        },
-        "dateCreated": {
-            "format": "date",
-            "s:additionalType": "https://schema.org/Date",
-            "s:sameAs": "https://schema.org/dateCreated",
-            "type": "string"
-        },
-        "priceSpecification": {
-            "properties": {
-                "deliveryChargeSpecification": {
-                    "properties": {
-                        "eligibleRegion": {
-                            "description": "Must use https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 (country codes)",
-                            "examples": [
-                                "gb"
-                            ],
-                            "items": {
+    "items": {
+        "properties": {
+            "buyer": {
+                "$ref": "#person",
+                "description": "The participant that bought the thing",
+                "s:additionalType": "https://schema.org/SellAction",
+                "s:sameAs": "s:buyer"
+            },
+            "dateCreated": {
+                "format": "date",
+                "s:additionalType": "https://schema.org/Date",
+                "s:sameAs": "https://schema.org/dateCreated",
+                "type": "string"
+            },
+            "priceSpecification": {
+                "properties": {
+                    "deliveryChargeSpecification": {
+                        "properties": {
+                            "eligibleRegion": {
+                                "description": "Must use https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 (country codes)",
+                                "examples": [
+                                    "gb"
+                                ],
+                                "items": {
+                                    "type": "string"
+                                },
+                                "s:additionalType": "s:Text",
+                                "s:sameAs": "s:eligibleRegion",
+                                "type": "array"
+                            },
+                            "price": {
+                                "$ref": "#price"
+                            }
+                        },
+                        "s:additionalType": "s:DeliveryChargeSpecification",
+                        "type": "object"
+                    },
+                    "price": {
+                        "$id": "#price",
+                        "s:additionalType": "s:Number",
+                        "s:sameAs": "s:price",
+                        "type": "number"
+                    },
+                    "priceCurrency": {
+                        "description": "Must use https://en.wikipedia.org/wiki/ISO_4217 (currency code)",
+                        "examples": [
+                            "gbp"
+                        ],
+                        "s:additionalType": "s:Text",
+                        "s:sameAs": "s:priceCurrency",
+                        "type": "string"
+                    },
+                    "totalPrice": {
+                        "s:additionalType": "s:Number",
+                        "s:sameAs": "s:totalPrice",
+                        "type": "number"
+                    },
+                    "totalPriceUnit": {
+                        "description": "totalPrice / unitPriceSpecification.referenceQuantity",
+                        "type": "number"
+                    },
+                    "unitPriceSpecification": {
+                        "properties": {
+                            "referenceQuantity": {
+                                "s:additionalType": "s:QuantitativeValue",
+                                "value": "number"
+                            }
+                        },
+                        "s:additionalType": "s:UnitPriceSpecification",
+                        "type": "object"
+                    },
+                    "valueAddedTaxIncluded": {
+                        "s:additionalType": "s:Boolean",
+                        "s:sameAs": "s:valueAddedTaxIncluded",
+                        "type": "boolean"
+                    }
+                },
+                "s:additionalType": "s:PriceSpecification",
+                "type": "object"
+            },
+            "product": {
+                "properties": {
+                    "brand": {
+                        "properties": {
+                            "name": {
+                                "s:additionalType": "s:Text",
                                 "type": "string"
                             },
-                            "s:additionalType": "s:Text",
-                            "s:sameAs": "s:eligibleRegion",
-                            "type": "array"
+                            "url": {
+                                "$ref": "#url"
+                            }
                         },
-                        "price": {
-                            "$ref": "#price"
-                        }
+                        "s:additionalType": "s:Brand",
+                        "s:sameAs": "s:brand",
+                        "type": "object"
                     },
-                    "s:additionalType": "s:DeliveryChargeSpecification",
-                    "type": "object"
-                },
-                "price": {
-                    "$id": "#price",
-                    "s:additionalType": "s:Number",
-                    "s:sameAs": "s:price",
-                    "type": "number"
-                },
-                "priceCurrency": {
-                    "description": "Must use https://en.wikipedia.org/wiki/ISO_4217 (currency code)",
-                    "examples": [
-                        "gbp"
-                    ],
-                    "s:additionalType": "s:Text",
-                    "s:sameAs": "s:priceCurrency",
-                    "type": "string"
-                },
-                "totalPrice": {
-                    "s:additionalType": "s:Number",
-                    "s:sameAs": "s:totalPrice",
-                    "type": "number"
-                },
-                "totalPriceUnit": {
-                    "description": "totalPrice / unitPriceSpecification.referenceQuantity",
-                    "type": "number"
-                },
-                "unitPriceSpecification": {
-                    "properties": {
-                        "referenceQuantity": {
-                            "s:additionalType": "s:QuantitativeValue",
-                            "value": "number"
-                        }
-                    },
-                    "s:additionalType": "s:UnitPriceSpecification",
-                    "type": "object"
-                },
-                "valueAddedTaxIncluded": {
-                    "s:additionalType": "s:Boolean",
-                    "s:sameAs": "s:valueAddedTaxIncluded",
-                    "type": "boolean"
-                }
-            },
-            "s:additionalType": "s:PriceSpecification",
-            "type": "object"
-        },
-        "product": {
-            "properties": {
-                "brand": {
-                    "properties": {
-                        "name": {
-                            "s:additionalType": "s:Text",
-                            "type": "string"
-                        },
-                        "url": {
-                            "$ref": "#url"
-                        }
-                    },
-                    "s:additionalType": "s:Brand",
-                    "s:sameAs": "s:brand",
-                    "type": "object"
-                },
-                "identifier": {
-                    "properties": {
-                        "gtin": {
-                            "s:additionalType": "s:Text",
-                            "s:sameAs": "s:gtin",
-                            "type": "string"
-                        },
-                        "productID": {
-                            "s:additionalType": "s:Text",
-                            "s:sameAs": "s:productID",
-                            "type": "string"
-                        }
-                    },
-                    "s:additionalType": "https://schema.org/PropertyValue",
-                    "s:sameAs": "https://schema.org/identifier",
-                    "type": "object"
-                },
-                "manufacturer": {
-                    "$ref": "#organization",
-                    "s:sameAs": "s:manufacturer"
-                },
-                "model": {
-                    "s:additionalType": "s:Text",
-                    "s:sameAs": "s:model",
-                    "type": "string"
-                },
-                "mpn": {
-                    "s:additionalType": "s:Text",
-                    "s:sameAs": "s:mpn",
-                    "type": "string"
-                },
-                "name": {
-                    "$ref": "#name"
-                },
-                "size": {
-                    "s:additionalType": "https://schema.org/Text",
-                    "s:sameAs": "https://schema.org/size",
-                    "type": "string"
-                }
-            },
-            "s:additionalType": "s:Product",
-            "type": "object"
-        },
-        "seller": {
-            "anyOf": [
-                {
-                    "if": {
+                    "identifier": {
                         "properties": {
-                            "agentType": {
-                                "const": "person"
+                            "gtin": {
+                                "s:additionalType": "s:Text",
+                                "s:sameAs": "s:gtin",
+                                "type": "string"
+                            },
+                            "productID": {
+                                "s:additionalType": "s:Text",
+                                "s:sameAs": "s:productID",
+                                "type": "string"
+                            }
+                        },
+                        "s:additionalType": "https://schema.org/PropertyValue",
+                        "s:sameAs": "https://schema.org/identifier",
+                        "type": "object"
+                    },
+                    "manufacturer": {
+                        "$ref": "#organization",
+                        "s:sameAs": "s:manufacturer"
+                    },
+                    "model": {
+                        "s:additionalType": "s:Text",
+                        "s:sameAs": "s:model",
+                        "type": "string"
+                    },
+                    "mpn": {
+                        "s:additionalType": "s:Text",
+                        "s:sameAs": "s:mpn",
+                        "type": "string"
+                    },
+                    "name": {
+                        "$ref": "#name"
+                    },
+                    "size": {
+                        "s:additionalType": "https://schema.org/Text",
+                        "s:sameAs": "https://schema.org/size",
+                        "type": "string"
+                    }
+                },
+                "s:additionalType": "s:Product",
+                "type": "object"
+            },
+            "seller": {
+                "anyOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "agentType": {
+                                    "const": "person"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "agent": {
+                                    "$id": "#person",
+                                    "properties": {
+                                        "affiliation": {
+                                            "$ref": "#organization",
+                                            "s:sameAs": "s:affiliation"
+                                        },
+                                        "description": {
+                                            "$ref": "#description"
+                                        },
+                                        "email": {
+                                            "$ref": "#email"
+                                        },
+                                        "location": {
+                                            "$ref": "#location"
+                                        },
+                                        "name": {
+                                            "$ref": "#name"
+                                        },
+                                        "telephone": {
+                                            "$ref": "#telephone"
+                                        },
+                                        "url": {
+                                            "$ref": "#url"
+                                        }
+                                    },
+                                    "s:additionalType": "s:Person",
+                                    "s:sameAs": "s:agent",
+                                    "type": "object"
+                                }
                             }
                         }
                     },
-                    "then": {
-                        "properties": {
-                            "agent": {
-                                "$id": "#person",
-                                "properties": {
-                                    "affiliation": {
-                                        "$ref": "#organization",
-                                        "s:sameAs": "s:affiliation"
+                    {
+                        "if": {
+                            "properties": {
+                                "agentType": {
+                                    "const": "organization"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "agent": {
+                                    "$id": "#organization",
+                                    "properties": {
+                                        "description": {
+                                            "$ref": "#description"
+                                        },
+                                        "email": {
+                                            "$ref": "#email"
+                                        },
+                                        "ethicsPolicy": {
+                                            "s:additionalType": "s:URL",
+                                            "s:sameAs": "s:ethicsPolicy",
+                                            "type": "string"
+                                        },
+                                        "location": {
+                                            "$ref": "#location"
+                                        },
+                                        "name": {
+                                            "$ref": "#name"
+                                        },
+                                        "parentOrganization": {
+                                            "$ref": "#organization",
+                                            "s:sameAs": "s:parentOrganization"
+                                        },
+                                        "telephone": {
+                                            "$ref": "#telephone"
+                                        },
+                                        "url": {
+                                            "$ref": "#url"
+                                        }
                                     },
-                                    "description": {
-                                        "$ref": "#description"
-                                    },
-                                    "email": {
-                                        "$ref": "#email"
-                                    },
-                                    "location": {
-                                        "$ref": "#location"
-                                    },
-                                    "name": {
-                                        "$ref": "#name"
-                                    },
-                                    "telephone": {
-                                        "$ref": "#telephone"
-                                    },
-                                    "url": {
-                                        "$ref": "#url"
-                                    }
-                                },
-                                "s:additionalType": "s:Person",
-                                "s:sameAs": "s:agent",
-                                "type": "object"
+                                    "s:additionalType": "s:Organization",
+                                    "s:sameAs": "s:agent",
+                                    "type": "object"
+                                }
                             }
                         }
                     }
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "agentType": {
-                                "const": "organization"
-                            }
-                        }
-                    },
-                    "then": {
-                        "properties": {
-                            "agent": {
-                                "$id": "#organization",
-                                "properties": {
-                                    "description": {
-                                        "$ref": "#description"
-                                    },
-                                    "email": {
-                                        "$ref": "#email"
-                                    },
-                                    "ethicsPolicy": {
-                                        "s:additionalType": "s:URL",
-                                        "s:sameAs": "s:ethicsPolicy",
-                                        "type": "string"
-                                    },
-                                    "location": {
-                                        "$ref": "#location"
-                                    },
-                                    "name": {
-                                        "$ref": "#name"
-                                    },
-                                    "parentOrganization": {
-                                        "$ref": "#organization",
-                                        "s:sameAs": "s:parentOrganization"
-                                    },
-                                    "telephone": {
-                                        "$ref": "#telephone"
-                                    },
-                                    "url": {
-                                        "$ref": "#url"
-                                    }
-                                },
-                                "s:additionalType": "s:Organization",
-                                "s:sameAs": "s:agent",
-                                "type": "object"
-                            }
-                        }
+                ],
+                "description": "The participant that sold the thing",
+                "properties": {
+                    "agentType": {
+                        "enum": [
+                            "person",
+                            "organization"
+                        ],
+                        "type": "string"
                     }
-                }
-            ],
-            "description": "The participant that sold the thing",
-            "properties": {
-                "agentType": {
-                    "enum": [
-                        "person",
-                        "organization"
-                    ],
-                    "type": "string"
-                }
+                },
+                "s:additionalType": "https://schema.org/BuyAction",
+                "s:sameAs": "s:seller",
+                "type": "object"
             },
-            "s:additionalType": "https://schema.org/BuyAction",
-            "s:sameAs": "s:seller",
-            "type": "object"
+            "service": {
+                "s:additionalType": "s:Service",
+                "type": "object"
+            }
         },
-        "service": {
-            "s:additionalType": "s:Service",
-            "type": "object"
-        }
+        "title": "Structured data for buying/selling something",
+        "type": "object"
     },
-    "title": "Structured data for buying/selling something",
-    "type": "object"
+    "type": "array"
 }
