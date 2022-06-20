@@ -134,7 +134,7 @@
                         "$id": "#price",
                         "s:additionalType": "s:Number",
                         "s:sameAs": "s:price",
-                        "type": "number"
+                        "type": "number",
                     },
                     "priceCurrency": {
                         "description": "Must use https://en.wikipedia.org/wiki/ISO_4217 (currency code)",
@@ -148,7 +148,8 @@
                     "totalPrice": {
                         "s:additionalType": "s:Number",
                         "s:sameAs": "s:totalPrice",
-                        "type": "number"
+                        "type": "number",
+                        "description": "price + deliveryChargeSpecification.price"
                     },
                     "totalPriceUnit": {
                         "description": "totalPrice / unitPriceSpecification.referenceQuantity",
