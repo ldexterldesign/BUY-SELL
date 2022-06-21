@@ -134,7 +134,7 @@
                         "$id": "#price",
                         "s:additionalType": "s:Number",
                         "s:sameAs": "s:price",
-                        "type": "number",
+                        "type": "number"
                     },
                     "priceCurrency": {
                         "description": "Must use https://en.wikipedia.org/wiki/ISO_4217 (currency code)",
@@ -146,10 +146,10 @@
                         "type": "string"
                     },
                     "totalPrice": {
+                        "description": "price + deliveryChargeSpecification.price",
                         "s:additionalType": "s:Number",
                         "s:sameAs": "s:totalPrice",
-                        "type": "number",
-                        "description": "price + deliveryChargeSpecification.price"
+                        "type": "number"
                     },
                     "totalPriceUnit": {
                         "description": "totalPrice / unitPriceSpecification.referenceQuantity",
@@ -228,6 +228,9 @@
                         "s:additionalType": "https://schema.org/Text",
                         "s:sameAs": "https://schema.org/size",
                         "type": "string"
+                    },
+                    "url": {
+                        "$ref": "#url"
                     }
                 },
                 "s:additionalType": "s:Product",
