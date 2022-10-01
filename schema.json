@@ -107,6 +107,22 @@
                 "s:sameAs": "https://schema.org/dateCreated",
                 "type": "string"
             },
+            "datePublished": {
+                "format": "date",
+                "s:additionalType": "https://schema.org/Date",
+                "s:sameAs": "https://schema.org/datePublished",
+                "type": "string"
+            },
+            "datePurchased": {
+                "format": "date",
+                "s:additionalType": "https://schema.org/Date",
+                "type": "string"
+            },
+            "dateUpdated": {
+                "format": "date",
+                "s:additionalType": "https://schema.org/Date",
+                "type": "string"
+            },
             "priceSpecification": {
                 "properties": {
                     "deliveryChargeSpecification": {
