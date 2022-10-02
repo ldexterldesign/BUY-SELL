@@ -98,29 +98,29 @@
             "buyer": {
                 "$ref": "person",
                 "description": "The participant that bought the thing",
-                "s:additionalType": "https://schema.org/SellAction",
+                "s:additionalType": "s:SellAction",
                 "s:sameAs": "s:buyer"
             },
             "dateCreated": {
                 "format": "date",
-                "s:additionalType": "https://schema.org/Date",
-                "s:sameAs": "https://schema.org/dateCreated",
+                "s:additionalType": "s:Date",
+                "s:sameAs": "s:dateCreated",
                 "type": "string"
             },
             "datePublished": {
                 "format": "date",
-                "s:additionalType": "https://schema.org/Date",
-                "s:sameAs": "https://schema.org/datePublished",
+                "s:additionalType": "s:Date",
+                "s:sameAs": "s:datePublished",
                 "type": "string"
             },
             "datePurchased": {
                 "format": "date",
-                "s:additionalType": "https://schema.org/Date",
+                "s:additionalType": "s:Date",
                 "type": "string"
             },
             "dateUpdated": {
                 "format": "date",
-                "s:additionalType": "https://schema.org/Date",
+                "s:additionalType": "s:Date",
                 "type": "string"
             },
             "priceSpecification": {
@@ -219,8 +219,8 @@
                                 "type": "string"
                             }
                         },
-                        "s:additionalType": "https://schema.org/PropertyValue",
-                        "s:sameAs": "https://schema.org/identifier",
+                        "s:additionalType": "s:PropertyValue",
+                        "s:sameAs": "s:identifier",
                         "type": "object"
                     },
                     "manufacturer": {
@@ -241,8 +241,8 @@
                         "$ref": "#/$defs/name"
                     },
                     "size": {
-                        "s:additionalType": "https://schema.org/Text",
-                        "s:sameAs": "https://schema.org/size",
+                        "s:additionalType": "s:Text",
+                        "s:sameAs": "s:size",
                         "type": "string"
                     },
                     "url": {
@@ -356,7 +356,7 @@
                         "type": "string"
                     }
                 },
-                "s:additionalType": "https://schema.org/BuyAction",
+                "s:additionalType": "s:BuyAction",
                 "s:sameAs": "s:seller",
                 "type": "object"
             },
