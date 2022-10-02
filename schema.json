@@ -1,9 +1,9 @@
 {
-    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "alias": {
-        "s": "https://schema.org/"
+        "s": "https://schema.org"
     },
-    "definitions": {
+    "$defs": {
         "description": {
             "$id": "#description",
             "s:additionalType": "s:Text",
