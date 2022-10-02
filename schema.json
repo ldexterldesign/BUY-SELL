@@ -79,6 +79,71 @@
             "s:sameAs": "s:name",
             "type": "string"
         },
+        "organization": {
+            "$anchor": "organization",
+            "properties": {
+                "description": {
+                    "$ref": "#/$defs/description"
+                },
+                "email": {
+                    "$ref": "#/$defs/email"
+                },
+                "ethicsPolicy": {
+                    "s:additionalType": "s:URL",
+                    "s:sameAs": "s:ethicsPolicy",
+                    "type": "string"
+                },
+                "location": {
+                    "$ref": "#/$defs/location"
+                },
+                "name": {
+                    "$ref": "#/$defs/name"
+                },
+                "parentOrganization": {
+                    "$ref": "#",
+                    "s:sameAs": "s:parentOrganization"
+                },
+                "telephone": {
+                    "$ref": "#/$defs/telephone"
+                },
+                "url": {
+                    "$ref": "#/$defs/url"
+                }
+            },
+            "s:additionalType": "s:Organization",
+            "s:sameAs": "s:agent",
+            "type": "object"
+        },
+        "person": {
+            "$anchor": "person",
+            "properties": {
+                "affiliation": {
+                    "$ref": "#/$defs/organization",
+                    "s:sameAs": "s:affiliation"
+                },
+                "description": {
+                    "$ref": "#/$defs/description"
+                },
+                "email": {
+                    "$ref": "#/$defs/email"
+                },
+                "location": {
+                    "$ref": "#/$defs/location"
+                },
+                "name": {
+                    "$ref": "#/$defs/name"
+                },
+                "telephone": {
+                    "$ref": "#/$defs/telephone"
+                },
+                "url": {
+                    "$ref": "#/$defs/url"
+                }
+            },
+            "s:additionalType": "s:Person",
+            "s:sameAs": "s:agent",
+            "type": "object"
+        },
         "telephone": {
             "$anchor": "telephone",
             "s:additionalType": "s:Text",
@@ -96,7 +161,7 @@
     "items": {
         "properties": {
             "buyer": {
-                "$ref": "person",
+                "$ref": "#/$defs/person",
                 "description": "The participant that bought the thing",
                 "s:additionalType": "s:SellAction",
                 "s:sameAs": "s:buyer"
@@ -265,34 +330,7 @@
                         "then": {
                             "properties": {
                                 "agent": {
-                                    "$anchor": "person",
-                                    "properties": {
-                                        "affiliation": {
-                                            "$ref": "#/$defs/organization",
-                                            "s:sameAs": "s:affiliation"
-                                        },
-                                        "description": {
-                                            "$ref": "#/$defs/description"
-                                        },
-                                        "email": {
-                                            "$ref": "#/$defs/email"
-                                        },
-                                        "location": {
-                                            "$ref": "#/$defs/location"
-                                        },
-                                        "name": {
-                                            "$ref": "#/$defs/name"
-                                        },
-                                        "telephone": {
-                                            "$ref": "#/$defs/telephone"
-                                        },
-                                        "url": {
-                                            "$ref": "#/$defs/url"
-                                        }
-                                    },
-                                    "s:additionalType": "s:Person",
-                                    "s:sameAs": "s:agent",
-                                    "type": "object"
+                                    "$ref": "#/$defs/person"
                                 }
                             }
                         }
@@ -308,39 +346,7 @@
                         "then": {
                             "properties": {
                                 "agent": {
-                                    "$anchor": "organization",
-                                    "properties": {
-                                        "description": {
-                                            "$ref": "#/$defs/description"
-                                        },
-                                        "email": {
-                                            "$ref": "#/$defs/email"
-                                        },
-                                        "ethicsPolicy": {
-                                            "s:additionalType": "s:URL",
-                                            "s:sameAs": "s:ethicsPolicy",
-                                            "type": "string"
-                                        },
-                                        "location": {
-                                            "$ref": "#/$defs/location"
-                                        },
-                                        "name": {
-                                            "$ref": "#/$defs/name"
-                                        },
-                                        "parentOrganization": {
-                                            "$ref": "#/$defs/organization",
-                                            "s:sameAs": "s:parentOrganization"
-                                        },
-                                        "telephone": {
-                                            "$ref": "#/$defs/telephone"
-                                        },
-                                        "url": {
-                                            "$ref": "#/$defs/url"
-                                        }
-                                    },
-                                    "s:additionalType": "s:Organization",
-                                    "s:sameAs": "s:agent",
-                                    "type": "object"
+                                    "$ref": "#/$defs/organization"
                                 }
                             }
                         }
