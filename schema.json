@@ -5,19 +5,19 @@
     },
     "$defs": {
         "description": {
-            "$id": "#description",
+            "$anchor": "description",
             "s:additionalType": "s:Text",
             "s:sameAs": "s:description",
             "type": "string"
         },
         "email": {
-            "$id": "#email",
+            "$anchor": "email",
             "s:additionalType": "s:Text",
             "s:sameAs": "s:email",
             "type": "string"
         },
         "location": {
-            "$id": "#location",
+            "$anchor": "location",
             "properties": {
                 "address": {
                     "properties": {
@@ -74,19 +74,19 @@
             "type": "object"
         },
         "name": {
-            "$id": "#name",
+            "$anchor": "name",
             "s:additionalType": "s:Text",
             "s:sameAs": "s:name",
             "type": "string"
         },
         "telephone": {
-            "$id": "#telephone",
+            "$anchor": "telephone",
             "s:additionalType": "s:Text",
             "s:sameAs": "s:telephone",
             "type": "string"
         },
         "url": {
-            "$id": "#url",
+            "$anchor": "url",
             "s:additionalType": "s:URL",
             "s:sameAs": "s:url",
             "type": "string"
@@ -96,7 +96,7 @@
     "items": {
         "properties": {
             "buyer": {
-                "$ref": "#person",
+                "$ref": "#/$defs/person",
                 "description": "The participant that bought the thing",
                 "s:additionalType": "https://schema.org/SellAction",
                 "s:sameAs": "s:buyer"
@@ -140,14 +140,14 @@
                                 "type": "array"
                             },
                             "price": {
-                                "$ref": "#price"
+                                "$ref": "#/$defs/price"
                             }
                         },
                         "s:additionalType": "s:DeliveryChargeSpecification",
                         "type": "object"
                     },
                     "price": {
-                        "$id": "#price",
+                        "$ref": "#/$defs/price",
                         "s:additionalType": "s:Number",
                         "s:sameAs": "s:price",
                         "type": "number"
@@ -199,7 +199,7 @@
                                 "type": "string"
                             },
                             "url": {
-                                "$ref": "#url"
+                                "$ref": "#/$defs/url"
                             }
                         },
                         "s:additionalType": "s:Brand",
@@ -224,7 +224,7 @@
                         "type": "object"
                     },
                     "manufacturer": {
-                        "$ref": "#organization",
+                        "$ref": "#/$defs/organization",
                         "s:sameAs": "s:manufacturer"
                     },
                     "model": {
@@ -238,7 +238,7 @@
                         "type": "string"
                     },
                     "name": {
-                        "$ref": "#name"
+                        "$ref": "#/$defs/name"
                     },
                     "size": {
                         "s:additionalType": "https://schema.org/Text",
@@ -246,7 +246,7 @@
                         "type": "string"
                     },
                     "url": {
-                        "$ref": "#url"
+                        "$ref": "#/$defs/url"
                     }
                 },
                 "s:additionalType": "s:Product",
@@ -265,29 +265,29 @@
                         "then": {
                             "properties": {
                                 "agent": {
-                                    "$id": "#person",
+                                    "$ref": "#/$defs/person",
                                     "properties": {
                                         "affiliation": {
-                                            "$ref": "#organization",
+                                            "$ref": "#/$defs/organization",
                                             "s:sameAs": "s:affiliation"
                                         },
                                         "description": {
-                                            "$ref": "#description"
+                                            "$ref": "#/$defs/description"
                                         },
                                         "email": {
-                                            "$ref": "#email"
+                                            "$ref": "#/$defs/email"
                                         },
                                         "location": {
-                                            "$ref": "#location"
+                                            "$ref": "#/$defs/location"
                                         },
                                         "name": {
-                                            "$ref": "#name"
+                                            "$ref": "#/$defs/name"
                                         },
                                         "telephone": {
-                                            "$ref": "#telephone"
+                                            "$ref": "#/$defs/telephone"
                                         },
                                         "url": {
-                                            "$ref": "#url"
+                                            "$ref": "#/$defs/url"
                                         }
                                     },
                                     "s:additionalType": "s:Person",
@@ -308,13 +308,13 @@
                         "then": {
                             "properties": {
                                 "agent": {
-                                    "$id": "#organization",
+                                    "$ref": "#/$defs/organization",
                                     "properties": {
                                         "description": {
-                                            "$ref": "#description"
+                                            "$ref": "#/$defs/description"
                                         },
                                         "email": {
-                                            "$ref": "#email"
+                                            "$ref": "#/$defs/email"
                                         },
                                         "ethicsPolicy": {
                                             "s:additionalType": "s:URL",
@@ -322,20 +322,20 @@
                                             "type": "string"
                                         },
                                         "location": {
-                                            "$ref": "#location"
+                                            "$ref": "#/$defs/location"
                                         },
                                         "name": {
-                                            "$ref": "#name"
+                                            "$ref": "#/$defs/name"
                                         },
                                         "parentOrganization": {
-                                            "$ref": "#organization",
+                                            "$ref": "#/$defs/organization",
                                             "s:sameAs": "s:parentOrganization"
                                         },
                                         "telephone": {
-                                            "$ref": "#telephone"
+                                            "$ref": "#/$defs/telephone"
                                         },
                                         "url": {
-                                            "$ref": "#url"
+                                            "$ref": "#/$defs/url"
                                         }
                                     },
                                     "s:additionalType": "s:Organization",
