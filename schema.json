@@ -96,7 +96,7 @@
     "items": {
         "properties": {
             "buyer": {
-                "$ref": "#/$defs/person",
+                "$ref": "person",
                 "description": "The participant that bought the thing",
                 "s:additionalType": "https://schema.org/SellAction",
                 "s:sameAs": "s:buyer"
@@ -265,7 +265,7 @@
                         "then": {
                             "properties": {
                                 "agent": {
-                                    "$ref": "#/$defs/person",
+                                    "$anchor": "person",
                                     "properties": {
                                         "affiliation": {
                                             "$ref": "#/$defs/organization",
@@ -308,7 +308,7 @@
                         "then": {
                             "properties": {
                                 "agent": {
-                                    "$ref": "#/$defs/organization",
+                                    "$anchor": "organization",
                                     "properties": {
                                         "description": {
                                             "$ref": "#/$defs/description"
