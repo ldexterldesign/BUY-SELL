@@ -140,14 +140,14 @@
                                 "type": "array"
                             },
                             "price": {
-                                "$ref": "#/$defs/price"
+                                "$ref": "price"
                             }
                         },
                         "s:additionalType": "s:DeliveryChargeSpecification",
                         "type": "object"
                     },
                     "price": {
-                        "$ref": "#/$defs/price",
+                        "$id": "price",
                         "s:additionalType": "s:Number",
                         "s:sameAs": "s:price",
                         "type": "number"
